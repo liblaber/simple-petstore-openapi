@@ -1,8 +1,8 @@
----
 openapi: 3.0.0
 info:
   version: 1.0.0
   title: Swagger Petstore
+  description: This is a sample server Petstore server. You can find out more about Swagger at http://swagger.io or on irc.freenode.net, #swagger.
   license:
     name: MIT
 servers:
@@ -11,6 +11,7 @@ paths:
   "/pets":
     get:
       summary: List all pets
+      description: Returns a list of pets from the system. The response can be paginated by using the 'limit' parameter and following the 'x-next' header for subsequent pages.
       operationId: listPets
       tags:
       - pets
@@ -43,6 +44,7 @@ paths:
                 "$ref": "#/components/schemas/Error"
     post:
       summary: Create a pet
+      description: Creates a new pet in the store. The request body must contain the pet information according to the Pet schema. Returns a 201 status code upon successful creation.
       operationId: createPets
       tags:
       - pets
@@ -64,6 +66,7 @@ paths:
   "/pets/{petId}":
     get:
       summary: Info for a specific pet
+      description: Returns detailed information about a specific pet based on its ID. The pet ID is provided as a path parameter.
       operationId: showPetById
       tags:
       - pets
